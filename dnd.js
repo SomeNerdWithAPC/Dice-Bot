@@ -149,4 +149,4 @@ client.on("message", message => {
 }})
 
 
-client.login('ODAxNDgzODI4ODU3Mjc0Mzc4.YAhV-w.pOcIAkbiUdA4tmZRoEVp3DERvSI');
+client.login('REMOVED');
