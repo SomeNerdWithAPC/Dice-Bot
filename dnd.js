@@ -72,54 +72,7 @@ client.on("message", message => {
             message.channel.send (rolld10)
            }
             break;
-            
-            case 'GetOn': 
-           
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-            message.channel.send (NotOn)
-
-
-            
-             
-            
+//this command has been removed, If you'd like to complain about this decision, DM me on discord @cash#2258
 
 
             case 'roll':
