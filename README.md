@@ -1,4 +1,4 @@
-To use/run this bot on your server do the following (The commands only work on windows)
+To use/run this bot on your server do the following (to my knowedge, these commands only work on windows)
 1. Download Node.js https://nodejs.org/en/
 2. Make a folder
 3. Open up the command prompt and CD into the new folder
