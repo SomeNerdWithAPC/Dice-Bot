@@ -4,7 +4,12 @@ const PREFIX = "!"
 var profile = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 var MHP = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 var HP = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-CS = 0
+var Init = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+var InitS = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+var InitID = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+var InitIDI = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+var PName = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+CS = 1
 ACTC = 1
 TDR = 0
 CHPP = 1
@@ -155,12 +160,33 @@ client.on("messageCreate", message => {
                } else if (TTR > 15) {message.reply("Sorry, you an only roll up to 15 dice at a time, this is to prevent spam and my computer from exploding")}
          
             }
-            break;         
+            break;        
+            
+            case 'Cahp':
+               CS = 1
+               
+               for (let  Lettuce = 1; Lettuce < 15; Lettuce++) {
+                  console.log(profile[CS])
+                  if (profile[CS] != 0) {
+                    CS = CS + 1
+                    
+                  } else {
+                     profile[CS] = message.author.id 
+                     
+                     message.reply('Health Point Profile Created, Use !MHP to set your max HP')
+                     break;
+                  }
+
+               }
+         
+                          
+            break;
             case 'CHPP':
                if (profile[1] != 0) {
                   
                } else {
                   profile[1] = message.author.id 
+                  
                   message.reply('Health Point Profile Created, Use !MHP to set your max HP')
                   break;
                }
@@ -273,48 +299,66 @@ client.on("messageCreate", message => {
             case 'MHP':
             if (args[1]) {
                CS = 1
+               console.log(CS)
             for (let  Lettuce = 1; Lettuce < 15; Lettuce++) {
-            if (profile[CS] = message.author.id) {
-               MHP[CS] = args[1]
-               HP[CS] = args[1]
-               message.reply("Your max HP is now " + MHP[CS])
-               break;
+               console.log("Loop" + CS)
+            if (message.author.id != profile[CS]) {
+               
+               CS = CS + 1
+               
 
             } else {
-               CS = CS + 1
+               console.log("Else " + CS)
+               MHP[CS] = args[1]
+               HP[CS] = args[1]
+               
+               message.reply("Your max HP is now " + MHP[CS])
+               console.log("MHP")
+               CS = 1
+               break;
             }
             }
             }
-
+            console.log("MHP")
             break;
             case 'DMG':
                CS = 1
                if (args[1]) {
                for (let  Lettuce = 1; Lettuce < 15; Lettuce++) {
-                  if (profile[CS] = message.author.id) {
+                  if (profile[CS] != message.author.id) {
                   
+                     CS = CS + 1
+                  } else { 
+                     console.log(message.author.tag + " " +  message.author.id)
+                  console.log(CS)
                   HP[CS] =  HP[CS] - args[1]
+                  if ( HP[CS] < 0) {HP[CS] = 0} 
+                  if (HP[CS] > MHP[CS]) {HP[CS] = MHP[CS]} 
                   message.reply("Your current HP is now " + HP[CS] + " out of " + MHP[CS])
+                  console.log("DMG")
+                  
                   break;
-                  } else {CS = CS + 1}
+               }
                }
             } else {message.reply("Please enter how much Damage to deal")}
-               
+            console.log("DMG")
             break;
             
             case 'AHP':
                CS = 1
                if (args[1]) {
                for (let  Lettuce = 1; Lettuce < 15; Lettuce++) {
-                  if (profile[CS] = message.author.id) {
-                     console.log(args[1])
-                     var HPC = args[1]
-                  
-                  HP[CS] = HP[CS] - ("-" + HPC)
-                  if (HP[CS] > MHP[CS]) {HP[CS] = MHP[CS]} 
-                  message.reply("Your current HP is now " + HP[CS] + " out of " + MHP[CS])
-                  break;
-               } else {CS = CS + 1}
+                  if (profile[CS] != message.author.id) {
+                     CS = CS + 1
+               } else {console.log(args[1])
+                  var HPC = args[1]
+               
+               HP[CS] = HP[CS] - ("-" + HPC)
+               if (HP[CS] > MHP[CS]) {HP[CS] = MHP[CS]} 
+               if ( HP[CS] < 0) {HP[CS] = 0} 
+               message.reply("Your current HP is now " + HP[CS] + " out of " + MHP[CS])
+               console.log("AHP")
+               break;}
             }
          } else {message.reply("Please input how much HP you'd like to heal")}
          
@@ -323,22 +367,40 @@ client.on("messageCreate", message => {
                   CS = 1
                   
                for (let  Lettuce = 1; Lettuce < 15; Lettuce++) {
-                  if (profile[CS] = message.author.id) {
-                     if (MHP[CS] = HP[CS]) {
-                     message.reply("You have max HP (" + MHP[CS] + ")")
-                     break;
-                     } else {message.reply("You have " + HP[CS] + "Health Points out of a maximum of" + MHP[CS])
-                  break;}
+                  if (profile[CS] != message.author.id) {
+                     CS = CS + 1
       
                   } else {
-                     CS = CS + 1
+                     
+                     {
+                     message.reply("You have " + HP[CS] + " Health Points out of a maximum of " + MHP[CS])
+                     break;
+                  }
                   }
                   }
                
                   break;
-                  
 
+                  
             case 'VHPP':
+               console.log("Obn")
+               console.log(profile[1])
+               console.log(profile[2])
+               console.log(profile[3])
+               console.log(profile[4])
+               console.log(profile[5])
+               console.log(profile[6])
+               console.log(profile[7])
+               console.log(profile[8])
+               console.log(profile[9])
+               console.log(profile[10])
+               console.log(profile[11])
+               console.log(profile[12])
+               console.log(profile[13])
+               console.log(profile[14])
+               console.log(profile[15])
+               break;
+            case 'VAHPI':
             console.log(profile[1])
             console.log(profile[2])
             console.log(profile[3])
@@ -371,35 +433,7 @@ client.on("messageCreate", message => {
             console.log(MHP[15])
 
             break;
-
-            
-               
-
-              
-            
-
-
-
-               
-
-                  
-                  
-
-                  
-           
-
-
-                  
-                  
-                  
-                  
-
-                  
-
-
-               }
-
          
-
+       }
 })
 client.login('Insert Token Here');
