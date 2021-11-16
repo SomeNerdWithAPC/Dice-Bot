@@ -3,21 +3,30 @@ const client = new Discord.Client({ intents: ['GUILDS', 'GUILD_MESSAGES']});
 const PREFIX = "!"
 var profile = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 var MHP = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-var HP = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] 
+var HP = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 CS = 0
-//I honsetly forget what half these variables do, but im too scared to delete them in case there important 
 ACTC = 1
 TDR = 0
 CHPP = 1
 AIDS = 1
 
 
+
+
+
+
 client.on('ready', () =>{
    console.log('Time for DND');
-   client.user.setActivity('!Help for Help!', { type: 'PLAYING' })
+   client.user.setActivity('!help for Help!', { type: 'PLAYING' })
 })
 
 client.on("messageCreate", message => {
+   serverName = message.guild.name
+    
+    
+            
+    
+        
         
     let args = message.content.substring(PREFIX.length).split(" ");
    
@@ -55,7 +64,7 @@ client.on("messageCreate", message => {
            for (let  Lettuce = 0; Lettuce < ATTRD; Lettuce++) {
            
            rolld20IG = Math.floor((Math.random() *20) + 1);
-           rolld20 = rolld20IG + 1
+           rolld20 = rolld20IG + 0
            TDR = TDR + rolld20
            if (rolld20 > 19) {
             message.reply("Nat 20! Nice!");
@@ -121,7 +130,9 @@ client.on("messageCreate", message => {
             break;
 
 
-
+            //case 'roll':
+            message.reply("Sorry, the !roll command is currentl disabled due to a bug, Sorry!")
+            break;
             case 'roll':
                
             if (args[2]) {
@@ -131,12 +142,13 @@ client.on("messageCreate", message => {
                   RWTR = WTR.substring(1)
                      if (RWTR < 100) {
                        PRolled = Math.floor((Math.random() *RWTR) + 1);
-                        message.channel.send(PRolled.toString())
+                        message.reply(PRolled.toString())
                            if (TTR > 99); {
                            }  for (let  Lettuce = 1; Lettuce < TTR; Lettuce++) {
                                  RWTR = WTR.substring(1)
-                                 CRolled = Math.floor((Math.random() *RWTR) + 1);
-                              }   message.reply(CRolled.toString())
+                                 BRolled = Math.floor((Math.random() *RWTR) + 1);
+                                 message.reply(BRolled.toString())
+                              }  
                      
                     } else if (RWTR > 100) {message.reply("Sorry, you an only roll up to a d100, this is to prevent spam and my computer from exploding")}        
             
@@ -360,6 +372,34 @@ client.on("messageCreate", message => {
 
             break;
 
-               }        
+            
+               
+
+              
+            
+
+
+
+               
+
+                  
+                  
+
+                  
+           
+
+
+                  
+                  
+                  
+                  
+
+                  
+
+
+               }
+
+         
+
 })
-client.login('Inster Toke Here');
+client.login('Insert Token Here');
